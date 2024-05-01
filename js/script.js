@@ -1,7 +1,7 @@
 let socket = io();
 socket.on('number', (message) => {
 console.log('Random number: ' + message);
-})
+});
 
 const addCards = (items) => {
     items.forEach(item => {

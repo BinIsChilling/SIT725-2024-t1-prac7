@@ -1,8 +1,8 @@
 let express = require('express');
 let app = express();
+let http = require("http").createServer(app);
 let io = require("socket.io")(http);
 let port = process.env.port || 3000;
-let http = require("http").createServer(app);
 let router = require('./routes/routes');
 
 app.use(express.static(__dirname + '/'));
@@ -50,6 +50,6 @@ io.on('connection', (socket) => {
     }, 1000);
 });
 
-app.listen(port, () => {
+http.listen(port, () => {
     console.log('server started');
 });
